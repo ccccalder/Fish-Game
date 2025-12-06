@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cl5o1bqod6cxb"]
 
 [ext_resource type="PackedScene" uid="uid://dbm17r03004q1" path="res://Scenes/Player.tscn" id="1_c6gwx"]
-[ext_resource type="Texture2D" uid="uid://bor7vawly2ivc" path="res://icon.svg" id="2_2dftf"]
+[ext_resource type="PackedScene" uid="uid://cmm74nui1lchj" path="res://enemy_spawner.tscn" id="3_bcbcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js7pq"]
 
@@ -12,14 +12,20 @@ size = Vector2(0.96203446, 343.04453)
 
 [node name="World" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_c6gwx")]
+[node name="Player" parent="." instance=ExtResource("1_c6gwx")]
 position = Vector2(559, 481)
 scale = Vector2(0.88030505, 0.88030505)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(472.99997, 152.99997)
-scale = Vector2(0.49390632, 0.49390632)
-texture = ExtResource("2_2dftf")
+[node name="EnemySpawnerLeft" parent="." instance=ExtResource("3_bcbcq")]
+position = Vector2(560, 264)
+scale = Vector2(0.993183, 1)
+spawn_height_range = 220.0
+
+[node name="EnemySpawnerRight" parent="." instance=ExtResource("3_bcbcq")]
+position = Vector2(560, 264)
+scale = Vector2(0.993183, 1)
+spawn_height_range = 220.0
+spawnDirection = 1.0
 
 [node name="CantGetToFish" type="StaticBody2D" parent="."]
 position = Vector2(573, 418.00003)

@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmm74nui1lchj"]
+[gd_scene load_steps=3 format=3 uid="uid://cmm74nui1lchj"]
 
 [ext_resource type="Script" uid="uid://c6k5paq6fyy02" path="res://enemy_spawner.gd" id="1_ewhtn"]
+[ext_resource type="PackedScene" uid="uid://cqv0njf3fqm8d" path="res://Scenes/fish_enemy.tscn" id="2_00s5r"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_ewhtn")
+Fish_Scene = ExtResource("2_00s5r")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SpawnClock" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnClock" to="." method="_on_spawn_clock_timeout"]

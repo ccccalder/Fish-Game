@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3mpm"]
 
 [node name="FishEnemy" type="Area2D"]
+scale = Vector2(0.4193583, 0.4193583)
 script = ExtResource("1_q3mpm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
