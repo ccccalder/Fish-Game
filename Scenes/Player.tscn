@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbm17r03004q1"]
+
+[ext_resource type="Script" uid="uid://bu6i4s2x5c4il" path="res://charactercontroller.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bor7vawly2ivc" path="res://icon.svg" id="1_xhfnw"]
+[ext_resource type="PackedScene" uid="uid://erp67yk8w4oc" path="res://Scenes/projectile.tscn" id="2_kne1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+size = Vector2(72, 74)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_kpjcp")
+ProjectileScene = ExtResource("2_kne1u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.59375, 0.59375)
+texture = ExtResource("1_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="shootingPosition" type="Node2D" parent="."]
+position = Vector2(0, -63)

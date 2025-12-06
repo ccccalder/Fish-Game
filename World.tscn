@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl5o1bqod6cxb"]
+
+[ext_resource type="PackedScene" uid="uid://dbm17r03004q1" path="res://Scenes/Player.tscn" id="1_c6gwx"]
+[ext_resource type="Texture2D" uid="uid://bor7vawly2ivc" path="res://icon.svg" id="2_2dftf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js7pq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dftf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcbcq"]
+size = Vector2(0.96203446, 343.04453)
+
+[node name="World" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_c6gwx")]
+position = Vector2(559, 481)
+scale = Vector2(0.88030505, 0.88030505)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(472.99997, 152.99997)
+scale = Vector2(0.49390632, 0.49390632)
+texture = ExtResource("2_2dftf")
+
+[node name="CantGetToFish" type="StaticBody2D" parent="."]
+position = Vector2(573, 418.00003)
+rotation = 3.1415927
+scale = Vector2(170.3136, 0.5641086)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CantGetToFish"]
+shape = SubResource("RectangleShape2D_js7pq")
+
+[node name="borders" type="StaticBody2D" parent="."]
+position = Vector2(586, 631)
+scale = Vector2(-64.44674, -1.8666182)
+
+[node name="bottomwall" type="CollisionShape2D" parent="borders"]
+position = Vector2(-0.015516689, -5.3572826)
+scale = Vector2(1, 0.44284397)
+shape = SubResource("RectangleShape2D_2dftf")
+
+[node name="leftwall" type="CollisionShape2D" parent="borders"]
+position = Vector2(9.170363, 169.2901)
+shape = SubResource("RectangleShape2D_bcbcq")
+
+[node name="rightwall" type="CollisionShape2D" parent="borders"]
+position = Vector2(-8.844513, 168.7544)
+shape = SubResource("RectangleShape2D_bcbcq")
