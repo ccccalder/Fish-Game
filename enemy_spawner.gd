@@ -37,7 +37,7 @@ func _on_timer_timeout() -> void:
 	
 	# Optional: Randomly decide the fish's direction and flip the sprite
 	if randi() % 2 == 0:
-	new_fish.direction = 1
+		new_fish.direction = 1
 		# Flip the sprite if necessary (you'd need a function in the FishEnemy script to handle this)
 	else:
 		new_fish.direction = -1 # Move Left (default)
