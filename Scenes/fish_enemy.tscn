@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqv0njf3fqm8d"]
+[gd_scene load_steps=5 format=3 uid="uid://cqv0njf3fqm8d"]
 
 [ext_resource type="Texture2D" uid="uid://bor7vawly2ivc" path="res://icon.svg" id="1_bytsc"]
 [ext_resource type="Script" uid="uid://kc1q5jee7n6s" path="res://fish_enemy.gd" id="1_q3mpm"]
+[ext_resource type="PackedScene" uid="uid://dy25lehe4vsei" path="res://Scenes/explosion_particles.tscn" id="2_1l3qh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3mpm"]
 
 [node name="FishEnemy" type="Area2D"]
 scale = Vector2(0.4193583, 0.4193583)
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("1_q3mpm")
+explosionScene = ExtResource("2_1l3qh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bytsc")
@@ -20,4 +24,5 @@ shape = SubResource("RectangleShape2D_q3mpm")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 scale = Vector2(nan, nan)
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
